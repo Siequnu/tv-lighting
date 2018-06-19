@@ -11,7 +11,9 @@ process = subprocess.Popen(turn_on_command, stdout=subprocess.PIPE, stderr=subpr
 turn_on_command = """curl -X PUT --header "Content-Type:Application/json" http://192.168.31.176/api/X-evzKmA8ysqS6rSO9mheet8r4eOGSRYAJ5UvUuJ/lights/2/state --data '{"on":true}'"""
 process = subprocess.Popen(turn_on_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
-
+# Set xiaomi strip saturation to 100
+cmd = """curl -X PUT --header "Content-Type:Application/json" --header "authorization: 092-94-999" http://192.168.31.95:51826/characteristics --data '{"characteristics":[{"aid":41,"iid":13,"value":100}]}'"""
+process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 while True:
 	try:	
 		# Get screenshot
@@ -50,7 +52,7 @@ while True:
 		#print str(hue), str(saturation), str(light)
 		
 		# Send command to light
-		cmd = """curl -X PUT --header "Content-Type:Application/json" --header "authorization: 092-94-999" http://192.168.31.95:51826/characteristics --data '{"characteristics":[{"aid":41,"iid":12,"value":""" + str(hue) + """},{"aid":41,"iid":13,"value":""" + str(saturation) + """ }]}'"""
+		cmd = """curl -X PUT --header "Content-Type:Application/json" --header "authorization: 092-94-999" http://192.168.31.95:51826/characteristics --data '{"characteristics":[{"aid":41,"iid":12,"value":""" + str(hue) + """}]}'"""
 		cmd_dining_table = """curl -X PUT --header "Content-Type:Application/json" --header "authorization: 092-94-999" http://192.168.31.95:51826/characteristics --data '{"characteristics":[{"aid":38,"iid":12,"value":""" + str(hue) + """},{"aid":38,"iid":13,"value":""" + str(saturation) + """ }]}'"""
 		process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 		#process = subprocess.Popen(cmd_dining_table, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
