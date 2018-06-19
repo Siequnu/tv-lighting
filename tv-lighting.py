@@ -8,7 +8,7 @@ import time
 turn_on_command = """curl -X PUT --header "Content-Type:Application/json" --header "authorization: 092-94-999" http://192.168.31.95:51826/characteristics --data '{"characteristics":[{"aid":41,"iid":10,"value":true,"status":0}]}'"""
 process = subprocess.Popen(turn_on_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 # Philips long table
-turn_on_command = """curl -X PUT --header "Content-Type:Application/json" http://192.168.31.176/api/X-evzKmA8ysqS6rSO9mheet8r4eOGSRYAJ5UvUuJ/lights/2/state --data '{"on":true, "sat":254, "bri":130}'"""
+turn_on_command = """curl -X PUT --header "Content-Type:Application/json" http://192.168.31.176/api/X-evzKmA8ysqS6rSO9mheet8r4eOGSRYAJ5UvUuJ/lights/2/state --data '{"on":true, "sat":230, "bri":80}'"""
 process = subprocess.Popen(turn_on_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
 # Set xiaomi strip saturation to 100
