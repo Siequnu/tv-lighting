@@ -10,7 +10,7 @@ while True:
 	subprocess.call(["lib/raspi2png/raspi2png", "--compression", "0", "--height", "300"])
 	
 	# Analyse for RGB
-	command = "convert /home/pi/Desktop/tv-lighting/snapshot.png -scale 1x1\! -format '%[pixel:u]' info:-"
+	command = "convert /home/pi/Developer/tv-lighting/snapshot.png -scale 1x1\! -format '%[pixel:u]' info:-"
 	process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=None, shell=True)
 	output = process.communicate()
 	
@@ -50,4 +50,4 @@ while True:
 	process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 	#process = subprocess.Popen(cmd_dining_table, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 	
-	time.sleep(1)
+	time.sleep(1.25)
